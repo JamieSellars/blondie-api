@@ -17,8 +17,15 @@ module.exports = {
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
 
-  models: {
-    connection: 'blondieDev'
-  }
+   connections: {
+       blondieDev: {
+        adapter: 'sails-mongo',
+        host: 'localhost',
+        port: 27017,
+        database: 'blondie'
+      },
+   },
+   
+    port: 1337,
 
 };

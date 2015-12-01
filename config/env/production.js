@@ -17,15 +17,21 @@ module.exports = {
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
 
-  // MODELS: {
-  //   CONNECTION: 'SOMEMYSQLSERVER'
-  // },
+   connections: {
+       blondieDev: {
+        adapter: 'sails-mongo',
+        host: 'localhost',
+        port: 27017,
+        database: 'blondie'
+      },
+   },
+  
 
   /***************************************************************************
-   * Set the port in the production environment to 80                        *
+   * Set the port in the production environment to 8001                       *
    ***************************************************************************/
 
-  // port: 80,
+  port: 8001,
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *

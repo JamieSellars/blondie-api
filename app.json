@@ -1,0 +1,10 @@
+{
+  /** TO BE USED ONLY FOR PORUDCTION  **/
+  "apps": [{
+              "name":         "blondie api",
+              "script":       "app.js",
+              "env": {
+                      "NODE_ENV": "production"
+              }
+          }]
+}
