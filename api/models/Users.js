@@ -10,6 +10,7 @@ var bcrypt = require('bcrypt');
 module.exports = {
 
     schema: true,
+    connection: 'blondie',
 
     attributes: {
 
@@ -96,7 +97,7 @@ module.exports = {
     },
 
     comparePassword : function (password, user, cb) {
-
+        
       bcrypt.compare(password, user.encryptedPassword, function (err, match) {
 
         if(err) cb(err);

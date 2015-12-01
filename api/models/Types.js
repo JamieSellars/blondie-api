@@ -7,7 +7,8 @@
 
 module.exports = {
 
-  schema: true,
+    schema: true,
+  connection: 'blondie',
 
   attributes: {
 

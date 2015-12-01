@@ -16,12 +16,20 @@ module.exports = {
       return res.json(401, {err: 'email and password required'});
     }
 
-    Users.findOne({username: username}, function (err, user) {
-      if (!user) {
+    
+
+    Users.findOne({ username: username }, function (err, user) {
+            
+      if(err){
+        return res.json(401, { err: err })
+      }
+      
+      if (!user || user.length === 0) {
         return res.json(401, {err: 'invalid username or password'});
       }
 
       Users.comparePassword(password, user, function (err, valid) {
+       
         if (err) {
           return res.json(403, {err: 'forbidden'});
         }
@@ -34,7 +42,8 @@ module.exports = {
             token: jwToken.issue({id : user.id })
           });
         }
+        
       });
-    })
+    });
   }
 };

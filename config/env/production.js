@@ -12,33 +12,7 @@
 
 module.exports = {
 
-  /***************************************************************************
-   * Set the default database connection for models in the production        *
-   * environment (see config/connections.js and config/models.js )           *
-   ***************************************************************************/
-
-   connections: {
-       blondieDev: {
-        adapter: 'sails-mongo',
-        host: 'localhost',
-        port: 27017,
-        database: 'blondie'
-      },
-   },
-  
-
-  /***************************************************************************
-   * Set the port in the production environment to 8001                       *
-   ***************************************************************************/
 
   port: 8001,
-
-  /***************************************************************************
-   * Set the log level in production environment to "silent"                 *
-   ***************************************************************************/
-
-  // log: {
-  //   level: "silent"
-  // }
 
 };

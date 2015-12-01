@@ -37,30 +37,32 @@ module.exports = {
 
 		Statuses.find({name: 'Closed'}).exec(function(err, status){
 
+
+
 			if(err) return res.send(err);
 
-				/**
-					return only tickets that have NOT been closed
-				**/
-				var statusid = status[0].id;
-				Tickets.find()
-				.where({
-					status: { '!': statusid }
-				})
-					.populate('assigned')
-					.populate('category')
-					.populate('subcategory')
-					.populate('type')
-					.populate('source')
-					.populate('status')
-					.populate('created')
-				.then(function(err, tickets){
+			/**
+				return only tickets that have NOT been closed
+			**/
+			var statusid = status[0].id;
+			Tickets.find()
+			.where({
+				status: { '!': statusid }
+			})
+				.populate('assigned')
+				.populate('category')
+				.populate('subcategory')
+				.populate('type')
+				.populate('source')
+				.populate('status')
+				.populate('created')
+			.then(function(err, tickets){
 
-					if(err) return res.send(err);
+				if(err) return res.send(err);
 
-						return res.send(tickets);
+					return res.send(tickets);
 
-				});
+			});
 
 		});
 	},
