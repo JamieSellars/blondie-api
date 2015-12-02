@@ -44,6 +44,7 @@ module.exports = {
 			/**
 				return only tickets that have NOT been closed
 			**/
+			
 			var statusid = status[0].id;
 			Tickets.find()
 			.where({

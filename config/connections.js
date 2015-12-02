@@ -58,8 +58,10 @@ module.exports.connections = {
   ***************************************************************************/
   blondie: {
     adapter: 'sails-mongo',
-    host: 'localhost',
+    host: '10.0.0.38',
     port: 27017,
+    user: 'blondieweb',
+    password: 'Blondie123',
     database: 'blondie'
   },
 
