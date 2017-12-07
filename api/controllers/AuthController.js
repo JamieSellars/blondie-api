@@ -14,9 +14,7 @@ module.exports = {
 
     if (!username || !password) {
       return res.json(401, {err: 'email and password required'});
-    }
-
-    
+    } 
 
     Users.findOne({ username: username }, function (err, user) {
             

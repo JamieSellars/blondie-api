@@ -21,6 +21,9 @@ module.exports = {
 		.populate('status')
 		.populate('created')
 
+		.limit(100)
+		.sort('updatedAt desc')
+
 		.exec(function(err, tickets){
 
 			if(err) return res.send(err);
@@ -61,7 +64,7 @@ module.exports = {
 
 				if(err) return res.send(err);
 
-					return res.send(tickets);
+				return res.send(tickets);
 
 			});
 
@@ -116,6 +119,8 @@ module.exports = {
 
 			// Add author id as loged in user
 			req.body.created = req.token.id;
+
+			console.log(req.body);
 
 			Tickets.create(req.body).exec(function(err, ticket){
 					if(err) {

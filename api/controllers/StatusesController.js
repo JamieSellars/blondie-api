@@ -20,19 +20,17 @@
 
  		});
  	},
- 	/*
- 		Create new user sent to API via /api/user :POST:
- 	*/
+
  	create: function(req, res){
 
- 			Statuses.create(req.body).exec(function(err, status){
- 					if(err) {
- 						return res.json(err.status, {err: err});
- 					}
- 					if(status){
- 						return res.ok(status);
- 					}
- 			});
+		Statuses.create(req.body).exec(function(err, status){
+				if(err) {
+					return res.json(err.status, {err: err});
+				}
+				if(status){
+					return res.ok(status);
+				}
+		});
  	},
  	/*
  		Get Source By ID

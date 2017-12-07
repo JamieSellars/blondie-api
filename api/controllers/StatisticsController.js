@@ -35,7 +35,7 @@ module.exports = {
 
 			var statistics = {};
 
-			Tickets.find().populate("status").exec(function(err, tickets){
+			Tickets.find().limit(100).populate("status").exec(function(err, tickets){
 
 				if(err) return res.send(err);
 
