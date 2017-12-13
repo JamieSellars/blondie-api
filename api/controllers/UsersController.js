@@ -41,7 +41,7 @@ module.exports = {
 	/*
 		REMOVE DATA
 	*/
-	destory: function(req, res){
+	destroy: function(req, res){
 
 		  var destroyMe = req.param('id');
 
@@ -153,8 +153,6 @@ module.exports = {
 			isManager: 	req.body.isManager
 		}
 		).exec(function(err, user){
-
-			console.log(err);
 
 			if(err) return res.notFound(err);
 

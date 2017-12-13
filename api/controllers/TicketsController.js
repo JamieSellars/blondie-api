@@ -120,8 +120,6 @@ module.exports = {
 			// Add author id as loged in user
 			req.body.created = req.token.id;
 
-			console.log(req.body);
-
 			Tickets.create(req.body).exec(function(err, ticket){
 					if(err) {
 						return res.json(err.status, {err: err});

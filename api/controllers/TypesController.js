@@ -12,9 +12,7 @@ module.exports = {
 	all: function(req, res){
 
 		Types.find().exec(function(err, types){
-			
-				console.log(types);
-			
+						
 			if(err) return res.send(err);
 
 			return res.send({ data: types });

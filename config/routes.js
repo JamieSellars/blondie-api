@@ -75,7 +75,7 @@ module.exports.routes = {
   'POST /api/users':                'UsersController.create',
   'GET  /api/users':                'UsersController.all',
   'GET  /api/users/:id':            'UsersController.get',
-  'DELETE /api/users/:id':          'UsersController.destory',
+  'DELETE /api/users/:id':          'UsersController.destroy',
   'PUT /api/users/:id':             'UsersController.update',
   // Administrator Change Password
   'PUT /api/changepassword/:id':    'UsersController.changePassword',
@@ -139,4 +139,43 @@ module.exports.routes = {
   'DELETE /api/subcategory/:id':            'SubCategoriesController.destroy',
   'PUT  /api/subcategory/:id':              'SubCategoriesController.update',
 
+
+  /**
+  *
+  * @description: LOST AND FOUND
+  *
+  **/
+
+
+  'GET /api/lostandfound/locations':        'LostandFoundLocationsController.get',
+  'GET /api/lostandfound/locations/:id':    'LostandFoundLocationsController.geById',
+  'POST /api/lostandfound/locations':       'LostandFoundLocationsController.create',
+  'PUT /api/lostandfound/locations/:id':    'LostandFoundLocationsController.update',
+  'DELETE /api/lostandfound/locations/:id': 'LostandFoundLocationsController.delete',
+
+  'GET /api/lostandfound/statuses':           'LostandFoundStatusesController.get',
+  'GET /api/lostandfound/statuses/:id':       'LostandFoundStatusesController.geById',
+  'POST /api/lostandfound/statuses':          'LostandFoundStatusesController.create',
+  'PUT /api/lostandfound/statuses/:id':       'LostandFoundStatusesController.update',
+  'DELETE /api/lostandfound/statuses/:id':    'LostandFoundStatusesController.delete',
+
+  'GET /api/lostandfound/categories/:id/subcategories': 'LostandFoundSubcategoriesController.get',
+  'GET /api/lostandfound/subcategories/:id':       'LostandFoundSubcategoriesController.geById',
+  'POST /api/lostandfound/subcategories':          'LostandFoundSubcategoriesController.create',
+  'PUT /api/lostandfound/subcategories/:id':       'LostandFoundSubcategoriesController.update',
+  'DELETE /api/lostandfound/subcategories/:id':    'LostandFoundSubcategoriesController.delete',
+
+  'GET /api/lostandfound/categories':           'LostandFoundCategoriesController.get',
+  'GET /api/lostandfound/categories/:id':       'LostandFoundCategoriesController.geById',
+  'POST /api/lostandfound/categories':          'LostandFoundCategoriesController.create',
+  'PUT /api/lostandfound/categories/:id':       'LostandFoundCategoriesController.update',
+  'DELETE /api/lostandfound/categories/:id':    'LostandFoundCategoriesController.delete',
+
+  'GET /api/lostandfound/properties':       'LostandFoundController.properties',
+  'GET /api/lostandfound':                  'LostandFoundController.get',
+  'GET /api/lostandfound/:id':              'LostandFoundController.geById',
+  'POST /api/lostandfound':                 'LostandFoundController.create',
+  'PUT /api/lostandfound/:id':              'LostandFoundController.update',
+  'DELETE /api/lostandfound/:id':           'LostandFoundController.delete',
+  
 };
