@@ -7,8 +7,8 @@ var plan = require('flightplan');
 plan.target('production', {
   env: 'production',
   host: 'pbnode',
-  username: 'webdeploy',
-  password: 'Webdeploy',
+  username: '',
+  password: '',
   agent: process.env.SSH_AUTH_SOCK,
 
   webRoot: '/var/www/blondie/webapi',
@@ -26,13 +26,6 @@ plan.target('production', {
  */
 plan.remote('setup', function(remote) {
 	remote.hostname();
-
-  remote.log("                    _       _                  ");
-  remote.log(" _ __    ___  _ __ (_) ___ | |__    ___  _ __");
-  remote.log("| '_ \\  / _ \\| '__|| |/ __|| '_ \\  / _ \\| '__|");
-  remote.log("| |_) ||  __/| |   | |\\__ \\| | | ||  __/| |");
-  remote.log("| .__/  \\___||_|   |_||___/|_| |_| \\___||_|");
-  remote.log("|_|");
 
 
   remote.log("-----------------------------------------------------   ");
@@ -63,14 +56,6 @@ plan.remote('deploy', function(remote) {
 	remote.hostname();
 
 	remote.with('cd ' + remote.runtime.webRoot, function() {
-
-    remote.log("                    _       _                  ");
-    remote.log(" _ __    ___  _ __ (_) ___ | |__    ___  _ __");
-    remote.log("| '_ \\  / _ \\| '__|| |/ __|| '_ \\  / _ \\| '__|");
-    remote.log("| |_) ||  __/| |   | |\\__ \\| | | ||  __/| |");
-    remote.log("| .__/  \\___||_|   |_||___/|_| |_| \\___||_|");
-    remote.log("|_|");
-
 
     remote.log("-----------------------------------------------------   ");
     remote.log("/!\\ Deploying Blondie Backend API /!\\")
