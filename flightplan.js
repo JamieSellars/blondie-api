@@ -7,12 +7,12 @@ var plan = require('flightplan');
 plan.target('production', {
   env: 'production',
   host: 'pbnode',
-  username: '',
-  password: '',
+  username: 'perisher',
+  password: 'P0wd3r R1dg3',
   agent: process.env.SSH_AUTH_SOCK,
 
   webRoot: '/var/www/blondie/webapi',
-  ownerUser: 'webdeploy',
+  ownerUser: 'perisher',
   repository: 'https://github.com/goingsideways/blondie-api.git',
   branchName: 'master',
   maxDeploys: 10
