@@ -12,6 +12,7 @@ module.exports = {
     var username = req.param('username');
     var password = req.param('password');
 
+
     if (!username || !password) {
       return res.json(401, {err: 'email and password required'});
     } 
@@ -27,18 +28,23 @@ module.exports = {
       }
 
       Users.comparePassword(password, user, function (err, valid) {
-       
+        
+
         if (err) {
           return res.json(403, {err: 'forbidden'});
         }
 
-        if (!valid) {
+        if (!valid || valid == 'undefined') {
+
           return res.json(401, {err: 'invalid username or password'});
+
         } else {
-          res.json({
+
+          return res.json({
             user: user,
             token: jwToken.issue({id : user.id })
           });
+
         }
         
       });

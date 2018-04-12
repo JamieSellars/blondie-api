@@ -50,7 +50,7 @@ module.exports.routes = {
   * @description: TICKETS
   *
   **/
-  'GET  /api/properties':           'TicketsController.properties',
+  'GET  /api/properties':             'TicketsController.properties',
 
   'POST /api/tickets':                'TicketsController.create',
   'GET  /api/tickets':                'TicketsController.all',

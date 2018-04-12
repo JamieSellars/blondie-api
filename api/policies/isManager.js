@@ -33,11 +33,19 @@ module.exports = function (req, res, next) {
   }
 
   jwToken.verify(token, function (err, token) {
+
     if (err) return res.json(401, {err: 'Invalid Token!'});
 
     var isManager = false;
 
-    Users.findOne({ id: token.id}).exec(function(err, user){
+    console.log(token.id)
+
+    Users.query("SELECT * FROM Users WHERE id = '" + token.id + "'", function(err, user){
+
+      if( err ) 
+        return res.serverError('isManager: ' + err)
+
+      user = user[0]
 
       if(!user.isManager) {
         return res.forbidden('You are not permitted to perform this action.');
@@ -45,6 +53,7 @@ module.exports = function (req, res, next) {
 
       req.token = token; // This is the decrypted token or the payload you provided
       next();
+
     });
 
 

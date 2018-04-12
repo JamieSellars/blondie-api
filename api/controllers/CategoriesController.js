@@ -38,7 +38,10 @@ module.exports = {
 	*/
 	get: function(req, res){
 
-			Categories.find(req.param('id')).exec(function(err, category){
+
+			Categories.find(req.param('id'))
+			.exec(function(err, category){
+
 
 				if(err) return res.badRequest(err);
 

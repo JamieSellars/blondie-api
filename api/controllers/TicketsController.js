@@ -11,26 +11,13 @@ module.exports = {
 	*/
 	all: function(req, res){
 
-		Tickets.find()
+		Tickets.query("SELECT TOP 1000 * FROM vw_Tickets ORDER BY CreatedAt DESC", function(err,tickets){
+		
+			if( err ) return res.serverError(err);
+			return res.ok(tickets);
+			
+		})
 
-		.populate('assigned')
-		.populate('category')
-		.populate('subcategory')
-		.populate('type')
-		.populate('source')
-		.populate('status')
-		.populate('created')
-
-		.limit(100)
-		.sort('updatedAt desc')
-
-		.exec(function(err, tickets){
-
-			if(err) return res.send(err);
-
-			return res.send(tickets);
-
-		});
 	},
 
 	/**
@@ -40,8 +27,6 @@ module.exports = {
 
 		Statuses.find({name: 'Closed'}).exec(function(err, status){
 
-
-
 			if(err) return res.send(err);
 
 			/**
@@ -49,24 +34,28 @@ module.exports = {
 			**/
 			
 			var statusid = status[0].id;
-			Tickets.find()
-			.where({
-				status: { '!': statusid }
-			})
-				.populate('assigned')
-				.populate('category')
-				.populate('subcategory')
-				.populate('type')
-				.populate('source')
-				.populate('status')
-				.populate('created')
-			.then(function(err, tickets){
+			// Tickets.find({
+			// 	limit: 50,
+			// })
+			// .where({
+			// 	status: { '!': statusid }
+			// })
+			// 	.populate('assigned')
+			// 	select top 50 from tickets
+			// 	inner join categotry where tickets.categgoryid = 
+			// 	.populate('category')
+			// 	.populate('subcategory')
+			// 	.populate('type')
+			// 	.populate('source')
+			// 	.populate('status')
+			// 	.populate('created')
+			// .then(function(err, tickets){
 
-				if(err) return res.send(err);
+			// 	if(err) return res.send(err);
 
-				return res.send(tickets);
+			// 	return res.send(tickets);
 
-			});
+			// });
 
 		});
 	},

@@ -9,12 +9,12 @@ var bcrypt = require('bcrypt');
 
 module.exports = {
 
-    schema: true,
+    schema: false,
     connection: 'blondie',
 
     attributes: {
 
-      firstname: {
+          firstname: {
         type: 'string'
       },
 
@@ -37,10 +37,6 @@ module.exports = {
       },
 
       status: {
-        /**
-        * 1 = Password change required
-        * 0 = Account Okay
-        **/
         type: 'integer',
         defaultsTo: 0,
       },
@@ -62,6 +58,7 @@ module.exports = {
         return obj;
       }
     },
+
     // Here we encrypt password before creating a User
     beforeCreate : function (values, next) {
       bcrypt.genSalt(10, function (err, salt) {

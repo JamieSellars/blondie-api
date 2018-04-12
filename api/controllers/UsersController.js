@@ -93,7 +93,7 @@ module.exports = {
 
 		var userId = req.token.id;
 
-		Users.findOne({ id: userId}).exec(function(err, user){
+		Users.query("SELECT * FROM Users WHERE id = '" + userId + "'", function(err, user){
 			if(err) return res.notFound(err);
 
 			if(user){
@@ -148,11 +148,11 @@ module.exports = {
 		Users.update({ id: userId },
 		{
 			firstname:  req.body.firstname,
-      lastname:		req.body.lastname,
-      email:			req.body.email,
+			lastname:	req.body.lastname,
+			email:		req.body.email,
 			isManager: 	req.body.isManager
-		}
-		).exec(function(err, user){
+
+		}).exec(function(err, user){
 
 			if(err) return res.notFound(err);
 
@@ -169,11 +169,11 @@ module.exports = {
 
 		var userId = req.body.id;
 
-		Users.findOne({id: userId}).exec(function (err, user) {
+		Users.findOne({ id: userId}).exec(function (err, user) {
 
 			if(err) return res.send(err);
 
-			Users.update({id: user.id}, { password: req.body.password, status: 1 }).exec(function(err, user){
+			Users.update({ id: user.id}, { password: req.body.password, status: 1 }).exec(function(err, user){
 
 					if(err)	return res.send(err);
 

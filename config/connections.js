@@ -56,13 +56,24 @@ module.exports.connections = {
   * Run: npm install sails-mongo                                             *
   *                                                                          *
   ***************************************************************************/
+  // blondie: {
+  //   adapter: 'sails-mongo',
+  //   host: '10.0.0.38',
+  //   port: 27017,
+  //   user: 'blondieweb',
+  //   password: 'Blondie123',
+  //   database: 'blondie'
+  // },
+
   blondie: {
-    adapter: 'sails-mongo',
-    host: '10.0.0.38',
-    port: 27017,
+    adapter: 'sails-sqlserver',
     user: 'blondieweb',
     password: 'Blondie123',
-    database: 'blondie'
+    host: 'PBSQLPA',
+    database: 'Blondie',
+    options: {
+      encrypt: false
+    }
   },
 
   /***************************************************************************
