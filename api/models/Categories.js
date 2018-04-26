@@ -11,7 +11,7 @@ module.exports = {
   connection: 'blondie',
 
   attributes: {
-
+    
     name: {
       type: 'string',
       required: true,
@@ -23,7 +23,10 @@ module.exports = {
     subcategories: {
       collection: 'SubCategories',
       via: 'category'
-    }
+    },
+    statusCode: {
+      type: 'integer',
+    },
 
   }
 };

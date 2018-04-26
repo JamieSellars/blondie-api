@@ -124,9 +124,11 @@ module.exports.routes = {
   **/
   'POST /api/categories':                'CategoriesController.create',
   'GET  /api/categories':                'CategoriesController.all',
+  'PUT  /api/categories/activate/:id':   'CategoriesController.activate',
   'GET  /api/categories/:id':            'CategoriesController.get',
   'DELETE /api/categories/:id':          'CategoriesController.destroy',
   'PUT  /api/categories/:id':            'CategoriesController.update',
+
 
   /**
   *
@@ -135,6 +137,7 @@ module.exports.routes = {
   **/
   'POST /api/subcategories':                'SubCategoriesController.create',
   'GET  /api/subcategories/:catid':         'SubCategoriesController.all',
+  'PUT  /api/subcategory/activate/:id':   'SubCategoriesController.activate',
   'GET  /api/subcategory/:id':              'SubCategoriesController.get',
   'DELETE /api/subcategory/:id':            'SubCategoriesController.destroy',
   'PUT  /api/subcategory/:id':              'SubCategoriesController.update',

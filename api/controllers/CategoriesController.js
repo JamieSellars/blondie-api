@@ -57,14 +57,33 @@ module.exports = {
 	*/
 	destroy: function(req, res){
 
-		Categories.destroy(req.param('id')).exec(function(err, category){
+		var id = parseInt(req.param('id'));
 
-			if(err) return res.badRequest(err);
+		Categories.update({ id: id })
+		.set({ statusCode: 0 }).exec( (err, result) => {
+			
+			console.log(result);
 
-			if(category){
-				res.ok("Category destoryed");
-			}
+			if( err ) return res.serverError( err );
+
+			return res.ok();
 
 		});
+		
+	},
+
+	activate: function(req, res){
+
+		var id = parseInt(req.param('id'));
+
+		Categories.update({ id: id })
+		.set({ statusCode: 1 }).exec( (err, result) => {
+			
+			if( err ) return res.serverError( err );
+
+			return res.ok();
+
+		});
+		
 	}
 };

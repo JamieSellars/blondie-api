@@ -56,14 +56,33 @@ module.exports = {
 	*/
 	destroy: function(req, res){
 
-		SubCategories.destroy(req.param('id')).exec(function(err, subcategory){
+		var id = parseInt(req.param('id'));
 
-			if(err) return res.badRequest(err);
+		SubCategories.update({ id: id })
+		.set({ statusCode: 0 }).exec( (err, result) => {
+			
+			console.log(result);
 
-			if(subcategory){
-				res.ok("SubCategory destoryed");
-			}
+			if( err ) return res.serverError( err );
+
+			return res.ok();
 
 		});
+		
+	},
+
+	activate: function(req, res){
+
+		var id = parseInt(req.param('id'));
+
+		SubCategories.update({ id: id })
+		.set({ statusCode: 1 }).exec( (err, result) => {
+			
+			if( err ) return res.serverError( err );
+
+			return res.ok();
+
+		});
+		
 	}
 };

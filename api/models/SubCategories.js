@@ -11,7 +11,9 @@ module.exports = {
   connection: 'blondie',
 
   attributes: {
-
+    statusCode: {
+      type: 'integer'
+    },
     name: {
       type: 'string',
       required: true,
