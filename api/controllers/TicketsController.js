@@ -155,7 +155,11 @@ module.exports = {
 		// Return all properties & settings available for a new ticket
 		var properties = {};
 
-		Categories.find().populate('subcategories').exec(function(err, categories){
+		Categories.find({ 
+			where: { statusCode: 1 }
+		}).populate('subcategories',{
+			where: { statusCode: 1 }
+		}).exec(function(err, categories){
 
 				if(err) return res.badRequest(err);
 				/*
@@ -188,8 +192,8 @@ module.exports = {
 									Statuses.find().exec(function(err, statuses){
 
 										if(err) return res.badRequest(err);
-										/*
-											ADD SOURCES TO PROPERTIES MODEL
+										/*MODEL
+											ADD SOURCES TO PROPERTIES 
 										*/
 										if(statuses){
 
