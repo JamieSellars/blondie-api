@@ -11,7 +11,7 @@ module.exports = {
 	*/
 	all: function(req, res){
 
-		Tickets.query("SELECT TOP 1000 * FROM vw_Tickets ORDER BY CreatedAt DESC", function(err,tickets){
+		Tickets.query("SELECT TOP 100 * FROM vw_Tickets ORDER BY CreatedAt DESC", function(err,tickets){
 		
 			if( err ) return res.serverError(err);
 			return res.ok(tickets);

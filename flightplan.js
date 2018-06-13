@@ -13,7 +13,7 @@ plan.target('production', {
 
   webRoot: '/var/www/blondie/webapi',
   ownerUser: 'webdeploy',
-  repository: 'https://github.com/goingsideways/blondie-api.git',
+  repository: 'https://github.com/jamiesellars/blondie-api.git',
   branchName: 'master',
   maxDeploys: 10
 });

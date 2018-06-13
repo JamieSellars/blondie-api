@@ -9,14 +9,16 @@ module.exports = {
             .populate('location')
             .populate('status')
         
-        .exec(function(err, items ){
+        .then((results)=>{
+
+            return res.ok(results);
+
+        })
+        .catch( (error) => {
+          
+            return res.serverError(error);
             
-            if(err) return res.send(err);
-
-            return res.send(items);
-
         });
-
     },
 
     geById : (req, res ) => {
