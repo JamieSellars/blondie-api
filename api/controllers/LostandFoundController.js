@@ -2,23 +2,11 @@ module.exports = {
 
     get : (req, res) => {
 
-        LostandFound.find()
+        LostandFound.query("SELECT TOP 100 * FROM vw_LostandFound ORDER BY CreatedAt DESC", function(err, result) {
 
-            .populate('category')
-            .populate('subcategory')
-            .populate('location')
-            .populate('status')
-        
-        .then((results)=>{
-
-            return res.ok(results);
-
+			if( err ) return res.serverError(err);
+			return res.ok(result);
         })
-        .catch( (error) => {
-          
-            return res.serverError(error);
-            
-        });
     },
 
     geById : (req, res ) => {
